@@ -4,6 +4,7 @@ import json
 cars = []
 
 
+
 def add_car(brand, model, hp, price):
     car = {
         "id": str(uuid.uuid4()),
@@ -133,15 +134,14 @@ while True:
             print(f"Price: {car['price']}")
             print("-" * 30)
     elif choice == "5":
+        slow_cars, fast_cars, sport_cars = categorize_by_hp()
+        cheap_cars, medium_cars, expensive_cars = categorize_by_price()
         save_data_to_file("slow_cars.json", slow_cars)
         save_data_to_file("fast_cars.json", fast_cars)
         save_data_to_file("sport_cars.json", sport_cars)
         save_data_to_file("cheap_cars.json", cheap_cars)
         save_data_to_file("medium_cars.json", medium_cars)
         save_data_to_file("expensive_cars.json", expensive_cars)
-        for brand in brands:
-            brand_data = [car for car in cars if car["brand"] == brand]
-            save_data_to_file(f"{brand.lower()}.json", brand_data)
         print("Data saved to files successfully.")
     elif choice == "6":
         print("Goodbye!")
