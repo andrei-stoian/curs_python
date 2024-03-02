@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: bg-light;
+}
+</style>
+<div class="container-fluid" style="padding: 50px 0; min-height: auto;">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <div class="bg-white p-4 container h-auto" style="width: 400px; height: auto; overflow-y: auto; box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2);">
+        <div class="text-center">
+          <h2>Edit Note</h2>
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-center"><img src="{% static 'img/save-edit.png' %}" alt="Save"  class="btn-image" style="max-height: 30px; max-width: 30px;"><button type="submit" class="btn" style="align-content: center;">Save Changes</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}s

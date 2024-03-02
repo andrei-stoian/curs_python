@@ -1,0 +1,98 @@
+
+{% load static %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="{% static 'css\base.css' %}">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: bg-light;
+      }
+      
+      main {
+        flex: 1;
+         /* Added box-shadow */
+      }
+      
+      footer {
+        text-align: center;
+      }
+      
+      .scrollable-container {
+        max-height: 1000px;
+        overflow-y: auto;
+      }
+      
+      .section-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      
+      body {
+  font-family: "Indie Flower", cursive;
+  letter-spacing: 0.1rem;
+  background-image: linear-gradient(90deg, #e8b6b6, 2px, rgba(255,255,255,0), 2px, rgba(255,255,255,0)), linear-gradient(0, #d9eaf3, 1px, rgba(255,255,255,0), 2px, rgba(255,255,255,0));
+  background-position: 4rem 0;
+  background-size: 100% 2.4rem;
+  color: #111;
+  padding: 2.2rem 0 0 5rem;  
+  white-space: nowrap;
+  
+
+    .bg-light {
+      background-color: #f8f9fa;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      text-align: center;
+    }
+  }
+      </style>
+
+<body>
+    <div class="container">
+      <div class="text-center" style="width: auto; box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2); max-width: 400px; margin: 0 auto;">
+        <h3>Title</h3>
+        {{ note.title }}<br><br>
+        <h3>Note</h3>
+        
+        <div class="text-center">
+          <div class="break-word">
+            <div class="scroll-box" style="max-height: 15rem; overflow-y: scroll; white-space: pre-wrap; margin: 0 auto;">
+              {{ note.text }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="text-center">
+        <p style="max-width: 280px; overflow-wrap: break-word; margin: 0 auto" class="section">Created at:<br> {{ note.created_at }}</p>
+       
+        <br>
+        <div class="d-flex justify-content-center ">
+          <img src="{% static 'img/home.png' %}" alt="Delete" title="Home" class="btn-image" style="max-height: 30px; max-width: 30px;">
+          <a class="btn" style="align-content: center;" href="{% url 'index' %}">Home</a>
+        </div>
+      </div>
+    </div>
+    
+</body>
+<footer>
+    
+<div class="d-flex justify-content-center">    <p>Stoian Andrei Notes App Copyright © {% now "Y" %}</p></div>
+
+</footer>
+

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: bg-light;
+}
+
+
+</style>
+
+
+<div class="container-fluid " style="padding: 50px 0; min-height: 100vh;">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center"> <!-- Added 'text-center' class -->
+      <div class="bg-white p-4 container vh-100" style="width: 400px; box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2);">
+        <h2 class="text-truncate">Delete Note</h2> <!-- Added 'text-truncate' class -->
+        <p class="text-truncate">Are you sure you want to delete "{{ note.text }}"?</p>
+        <form method="post" onsubmit="return confirm('Are you sure you want to delete?');">
+          {% csrf_token %}
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-danger" onsubmit="return confirm('Are you sure you want to delete?');">
+              
+            <img src="{% static 'img/delete.png' %}" style="vertical-align: middle; margin-right: 5px; max-height: 30px; max-width: 30px;">
+              Delete
+            </button>
+            
+          </div>
+          
+          
+        </form>
+        <br>
+       
+        <div class="d-flex justify-content-center">
+          <a href="{% url 'notes' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

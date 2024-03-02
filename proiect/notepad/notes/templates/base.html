@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet"  href="{% static 'css\base.css' %}">
+
+  {% block style %}
+  {% endblock %}
+  
+</head>
+<body class="bg-light">
+
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <ul class="navbar-nav mr-auto justify-content-center"> <!-- Added justify-content-center class -->
+        {% if user.is_authenticated %}
+         <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><h2>Home |</h2></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'notes' %}"><h2>View Notes |</h2></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'add_note' %}"><h2>Add Notes |</h2></a></li>
+            <li class="nav-item"><a class="nav-link"  href="{% url 'logout' %}" onclick="return confirm('Are you sure you want to logout?')"><h2>Logout</h2></a></li>
+        {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><h2>Home |</h2></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><h2>Login |</h2></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'register' %}"><h2>Register</h2></a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+    
+ 
+  <main>
+   
+    {% block content %}{% endblock %}
+
+  </main>
+  <footer>
+    <div class="container-fluid bg-light">    <p>Stoian Andrei Notes App Copyright © {% now "Y" %}</p></div>
+
+  </footer>
+</body>
+</html>

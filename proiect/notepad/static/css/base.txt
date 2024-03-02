@@ -1,0 +1,25 @@
+ @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+body {
+  font-family: "Indie Flower", cursive;
+  letter-spacing: 0.1rem;
+  background-image: linear-gradient(90deg, #e8b6b6, 2px, rgba(255,255,255,0), 2px, rgba(255,255,255,0)), linear-gradient(0, #d9eaf3, 1px, rgba(255,255,255,0), 2px, rgba(255,255,255,0));
+  background-position: 4rem 0;
+  background-size: 100% 2.4rem;
+  color: #111;
+  padding: 2.2rem 0 0 5rem;  
+  white-space: nowrap;
+  
+
+    .bg-light {
+      background-color: #f8f9fa;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      text-align: center;
+    }
+  }

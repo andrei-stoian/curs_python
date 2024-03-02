@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid " style="padding: 50px 0; min-height: auto;">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center"> <!-- Added 'text-center' class -->
+     
+  <h2 class="text-center mb-4">Login</h2>
+  <div class="d-flex justify-content-center">
+    <div class="w-50" style="width: 300px;">
+      <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="d-flex justify-content-center"><img src="{% static 'img/login.png' %}" alt="Login"  class="btn-image" style="max-height: 30px; max-width: 30px;"><button type="submit" class="btn" style="align-content: center;">Login</button></div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+  {% endblock %}
