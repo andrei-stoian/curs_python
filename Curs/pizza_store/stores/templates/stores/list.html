@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <button id="btn">Load data!</button>
+    <div id="store-list"></div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        console.log('test stores');
+        console.log('use JS to get data from server and display them');
+        $( "#btn" ).on( "click", function( event ) {
+            load_stores_data();
+        });
+
+        function load_stores_data() {
+            $.ajax({
+                url: "http://localhost:8000/api/stores",
+                success: function( result ) {
+                    //$( "#weather-temp" ).html( "<strong>" + result + "</strong> degrees" );
+                    console.log('result', result);
+                    var stores = result;
+                    var ul = document.createElement('ul');
+                    for (var i = 0; i < stores.length; i++) {
+                        console.log('stores[i]', stores[i]);
+                        var li = document.createElement('li');
+                        li.innerHTML = stores[i].name;
+                        ul.append(li);
+                    }
+                    document.body.append(ul);
+                }
+            });
+        }
+
+    </script>
+{% endblock %}
